@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mc-client-test
+  name: mc-client-test
+  namespace: test-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mc-client-test
+  template:
+    metadata:
+      labels:
+        app: mc-client-test
+    spec:
+      containers:
+        - args:
+            - while true; do sleep 30; done;
+          command:
+            - /bin/sh
+            - '-c'
+            - '--'
+          image: minio/mc
+          name: mc-client-test

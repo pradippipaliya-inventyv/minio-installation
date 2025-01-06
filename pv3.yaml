@@ -5,12 +5,12 @@ metadata:
 spec:
   storageClassName: standard
   capacity:
-    storage: 1Gi
+    storage: 2Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
   hostPath:
-    path: "/mnt/data1"
+    path: "/mnt/data2"
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -18,4 +18,4 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - worker2
+                - ip-172-31-12-187

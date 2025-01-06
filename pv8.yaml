@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-4
+  name: pv-8
 spec:
-  storageClassName: standard
+  storageClassName: standard-2
   capacity:
     storage: 2Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
   hostPath:
-    path: "/mnt/data2"
+    path: "/mnt/data3"
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -18,3 +18,4 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
+                - ip-172-31-12-187 
